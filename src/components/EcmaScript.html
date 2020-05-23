@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <script type="text/javascript">
+           class Vehicle
+           {
+                constructor(model, wheels)
+                {
+                    this.model = model;
+                    this.wheels = wheels;
+                }
+           }
+           class Car extends Vehicle{
+               constructor(name, wheels, steering, model)
+               {
+                    super(model, wheels);
+                    this.name = name;
+                    this.wheels = wheels+1;
+                    this.steering = steering;
+                    this.superwheels = super.wheels;
+                    this.model = model;
+               }
+               changeNumberofWheels()
+               {
+                   this.wheels = this.wheels+1;
+               }
+           }
+
+           const carObject = new Car("I10",4,2,"fourwheeler");
+           //const carObject2 = new Car("Jeep",6,3);
+
+           document.writeln(carObject.name +" wheels"+carObject.wheels + " steering "+carObject.superwheels + " Model "+carObject.model);
+           carObject.changeNumberofWheels();
+          // document.writeln(carObject.name +" wheels"+carObject.wheels + " steering "+carObject.steering+ " Model "+carObject.model);
+           //document.writeln(carObject2.name +" wheels"+carObject2.wheels + " steering "+carObject2.steering);
+            //document.write(car(4,1,"sony"));
+        </script>
+    </body>
+</html>
+

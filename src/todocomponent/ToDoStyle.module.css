@@ -1,0 +1,13 @@
+.completed{
+    font-style: Italic;
+    color : green;
+    text-decoration : line-through;
+}
+.notcompleted{
+    font-style : Italic;
+    color : red;
+}
+.btn{
+    padding:20px;
+    border: 1px solid red;
+}
