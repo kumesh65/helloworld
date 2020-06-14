@@ -6,6 +6,9 @@ import Student from "./Student";
 import $ from "jquery";
 import "./App.css"
 
+import store from "./Store";
+import { addStudent, crateFirstStore } from "./Actions"
+
 class App extends React.Component{
     constructor(){
         super();
@@ -73,12 +76,15 @@ class App extends React.Component{
         this.setState({
             student : [...this.state.student, newArray]
         });
-        localStorage.setItem("Student",JSON.stringify([...this.state.student, newArray]));
+       localStorage.setItem("Student",JSON.stringify([...this.state.student, newArray]));
+       store.dispatch(addStudent([...this.state.student, newArray]));
+
     }
     componentDidMount()
     {
         const savedData = JSON.parse(localStorage.getItem("Student"));
         savedData ? this.setState({ student: savedData }): this.setState({student :StudentData })
+        store.dispatch(crateFirstStore(this.state.student));
     }
     showForm()
     {
@@ -98,6 +104,7 @@ class App extends React.Component{
                 handleUpdate = {this.handleUpdate} />
             )
         });
+        console.log("new data is ", store.getState());
         return(
             <div>
                 <h1>Student Information</h1>
